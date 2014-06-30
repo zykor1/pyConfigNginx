@@ -1,4 +1,5 @@
-TRUE = [True, "si", "Si", "s", "S", 1, "Yes", "yes", "Y", "y", "true"]
+# -*- coding: utf-8 -*-
+TRUE = ["True", "si", "Si", "s", "S", "1", "Yes", "yes", "Y", "y", "true"]
 
 def solicita_string(mensaje):
 	res = raw_input(mensaje)
@@ -12,6 +13,6 @@ def solicita_int(mensaje):
 
 def solicita_si_no(mensaje):
 	res = raw_input(mensaje)
-	if res in true:
-    	return True
-    return False
+	if res in TRUE:
+		return True
+	return False

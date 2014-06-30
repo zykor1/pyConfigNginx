@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from subprocess import call, Popen, PIPE
 
 def get_home():
