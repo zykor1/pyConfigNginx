@@ -57,5 +57,3 @@ class Configuracion:
 		print "Por default la version nginx que se instalara es: " + self.FILENAME
 		if solicita_si_no("¿Deseas cambiar la version de nginx?\nrespuesta > "):
 			self.DIRECTORIO_INSTALAR = solicita_string("¿Escribe la nueva version a descargar ejemplo: nginx-1.7.2.tar.gz ?\nversion > ")
-
-
