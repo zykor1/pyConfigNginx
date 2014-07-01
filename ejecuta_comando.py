@@ -15,9 +15,11 @@ def get_from_terminal(comando):
 	res = auxRes.communicate()
 	return res[0].rstrip
 
-def ejecutar_comando(comando):
+def ejecutar_comando(comando, sudo=False):
 	"""
 		Ejecuta un comando en la terminal y regresa 1 True, 0 False
 	"""
+	if sudo:
+		comando = "sudo " + comando
 	res = call([comando], shell = True)
 	return res
