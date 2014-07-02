@@ -1,5 +1,5 @@
 from ejecuta_comando import ejecutar_comando, get_from_terminal, get_home
-from configuracion_nginx import Configuracion
+from pre_configuracion_nginx import Configuracion
 
 
 class Instalacion:
