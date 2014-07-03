@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 from ejecuta_comando import ejecutar_comando, get_from_terminal, get_home
 from pre_configuracion_nginx import Configuracion
+import io, json
 
 
 class Instalacion:
 	conf = Configuracion()
-	dir_temp = self.conf.DIRECTORIO_INSTALAR + "temp/" + self.conf.FILENAME
+	ruta_nginx = ""
 	def __init__(self):
 		self.conf.configura_sudo()
 		self.conf.configura_directorio()
@@ -76,6 +78,19 @@ class Instalacion:
 			http_proxy_temp_path=self.conf.DIRECTORIO_INSTALAR + "tmp/proxy/",
 			http_fastcgi_temp_path=self.conf.DIRECTORIO_INSTALAR + "tmp/fcgi/"
 		)
+
+
+	def guarda_datos_instalacion(self):
+		configuracion_instalacion_nginx  = {
+			"directorio_temporal_instalacion": self.conf.TEMP,
+			"directorio_temporal_instalacion_nginx": self.ruta_nginx,
+			"version_nginx": self.conf.FILENAME,
+			"configure_command_nginx": self.genera_configure(),
+			"SUDO": self.conf.SUDO_ALL,
+			"directorio_instalacion": self.conf.DIRECTORIO_INSTALAR
+		}
+		with open('configuraciones/configuracion.json', 'w') as f:
+			json.dump(configuracion_instalacion_nginx, f)
 
 
 #call(["wget 'http://nginx.org/download/nginx-1.7.2.tar.gz'"], shell = True)
