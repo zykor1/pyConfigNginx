@@ -13,6 +13,7 @@ class Instalacion:
 		self.conf.crea_directorio_nginx()
 		self.conf.crea_directorio_temporal()
 		self.conf.version_nginx()
+		self.guarda_datos_instalacion()
 
 
 	def descargar_nginx(self):
@@ -91,17 +92,3 @@ class Instalacion:
 		}
 		with open('configuraciones/configuracion.json', 'w') as f:
 			json.dump(configuracion_instalacion_nginx, f)
-
-
-#call(["wget 'http://nginx.org/download/nginx-1.7.2.tar.gz'"], shell = True)
-
-#call([" /home/zykor/"], shell = True)
-#call(["pwd"], shell = True)
-
-
-# wget 'http://nginx.org/download/nginx-1.7.2.tar.gz'
-# tar -xzf nginx-1.7.2.tar.gz
-# cd nginx-1.7.2
-# ./configure
-# make
-# sudo make install
